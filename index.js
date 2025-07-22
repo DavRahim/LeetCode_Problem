@@ -201,4 +201,6 @@ function longestPalindrome(s) {
 // Example usage:
 console.log(`longestPalindrome:`, longestPalindrome("babad")); // "bab" or "aba"
 console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
-console.log(`longestPalindrome:`, longestPalindrome("abdur")); // 
+console.log(`longestPalindrome:`, longestPalindrome("abdur")); //   "aba" (or "bab", depending on the implementation)
+
+
