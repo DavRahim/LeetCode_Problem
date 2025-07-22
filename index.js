@@ -173,3 +173,32 @@ console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 3], [2])); // 
 console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 2], [3, 4])); // 2.5
 
 // TODO: Longest Palindromic Substring
+
+function longestPalindrome(s) {
+  let start = 0, end = 0;
+
+  const expandAroundCenter = (left, right) => {
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+      left--;
+      right++;
+    }
+    return right - left - 1;
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    const len1 = expandAroundCenter(i, i); // Odd length palindromes
+    const len2 = expandAroundCenter(i, i + 1); // Even length palindromes
+    const len = Math.max(len1, len2);
+
+    if (len > end - start) {
+      start = i - Math.floor((len - 1) / 2);
+      end = i + Math.floor(len / 2);
+    }
+  }
+
+  return s.substring(start, end + 1);
+}
+// Example usage:
+console.log(`longestPalindrome:`, longestPalindrome("babad")); // "bab" or "aba"
+console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
+console.log(`longestPalindrome:`, longestPalindrome("abdur")); // 
