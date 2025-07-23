@@ -204,3 +204,28 @@ console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
 console.log(`longestPalindrome:`, longestPalindrome("abdur")); //   "aba" (or "bab", depending on the implementation)
 
 
+// TODO: Zigzag Conversion
+
+function convert(s, numRows) {
+  if (numRows === 1 || numRows >= s.length) return s;
+
+  const rows = Array.from({ length: numRows }, () => '');
+  let currentRow = 0;
+  let goingDown = false;
+
+  for (let char of s) {
+    rows[currentRow] += char;
+    if (currentRow === 0) goingDown = true;
+    else if (currentRow === numRows - 1) goingDown = false;
+
+    currentRow += goingDown ? 1 : -1;
+  }
+
+  return rows.join('');
+}
+// Example usage:
+console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR" 
+console.log(`convert:`, convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
+console.log(`convert:`, convert("A", 1)); // "A"
+
+
