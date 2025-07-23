@@ -228,4 +228,9 @@ console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR"
 console.log(`convert:`, convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
 console.log(`convert:`, convert("A", 1)); // "A"
 
-
+//Intuition
+// The zigzag conversion arranges characters in a zigzag pattern across multiple rows, then reads them row by row.
+// The function constructs an array of strings for each row, iterating through the input string and determining the current row based on the direction of traversal (down or up). 
+// Finally, it joins the rows to form the final converted string.
+// The time complexity is O(n), where n is the length of the input string, as each character is processed once.
+// The space complexity is O(n) as well, due to the storage of characters in the rows array.
