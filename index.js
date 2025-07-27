@@ -157,7 +157,6 @@ console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("pwwkew")); //
 
 // The overall run time complexity should be O(log (m+n)).
 
-
 function findMedianSortedArrays(nums1, nums2) {
   const merged = [...nums1, ...nums2].sort((a, b) => a - b);
   const len = merged.length;
@@ -175,7 +174,8 @@ console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 2], [3, 4])); 
 // TODO: Longest Palindromic Substring
 
 function longestPalindrome(s) {
-  let start = 0, end = 0;
+  let start = 0,
+    end = 0;
 
   const expandAroundCenter = (left, right) => {
     while (left >= 0 && right < s.length && s[left] === s[right]) {
@@ -203,13 +203,12 @@ console.log(`longestPalindrome:`, longestPalindrome("babad")); // "bab" or "aba"
 console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
 console.log(`longestPalindrome:`, longestPalindrome("abdur")); //   "aba" (or "bab", depending on the implementation)
 
-
 // TODO: Zigzag Conversion
 
 function convert(s, numRows) {
   if (numRows === 1 || numRows >= s.length) return s;
 
-  const rows = Array.from({ length: numRows }, () => '');
+  const rows = Array.from({ length: numRows }, () => "");
   let currentRow = 0;
   let goingDown = false;
 
@@ -221,16 +220,34 @@ function convert(s, numRows) {
     currentRow += goingDown ? 1 : -1;
   }
 
-  return rows.join('');
+  return rows.join("");
 }
 // Example usage:
-console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR" 
+console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR"
 console.log(`convert:`, convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
 console.log(`convert:`, convert("A", 1)); // "A"
 
 //Intuition
 // The zigzag conversion arranges characters in a zigzag pattern across multiple rows, then reads them row by row.
-// The function constructs an array of strings for each row, iterating through the input string and determining the current row based on the direction of traversal (down or up). 
+// The function constructs an array of strings for each row, iterating through the input string and determining the current row based on the direction of traversal (down or up).
 // Finally, it joins the rows to form the final converted string.
 // The time complexity is O(n), where n is the length of the input string, as each character is processed once.
 // The space complexity is O(n) as well, due to the storage of characters in the rows array.
+
+// Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+// Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+function reverse(x) {
+  const sign = x < 0 ? -1 : 1;
+  const reversed = parseInt(Math.abs(x).toString().split('').reverse().join('')) * sign;
+
+  if (reversed < -Math.pow(2, 31) || reversed > Math.pow(2, 31) - 1) {
+    return 0;
+  }
+  
+  return reversed;
+}
+// Example usage:
+console.log(`reverse:`, reverse(123)); // 321
+console.log(`reverse:`, reverse(-123)); // -321
+console.log(`reverse:`, reverse(120)); // 21
