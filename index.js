@@ -239,12 +239,13 @@ console.log(`convert:`, convert("A", 1)); // "A"
 // Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 function reverse(x) {
   const sign = x < 0 ? -1 : 1;
-  const reversed = parseInt(Math.abs(x).toString().split('').reverse().join('')) * sign;
+  const reversed =
+    parseInt(Math.abs(x).toString().split("").reverse().join("")) * sign;
 
   if (reversed < -Math.pow(2, 31) || reversed > Math.pow(2, 31) - 1) {
     return 0;
   }
-  
+
   return reversed;
 }
 // Example usage:
@@ -252,10 +253,7 @@ console.log(`reverse:`, reverse(123)); // 321
 console.log(`reverse:`, reverse(-123)); // -321
 console.log(`reverse:`, reverse(120)); // 21
 
-
-
 // TODO: String to Integer (atoi)
-
 
 /**
  * 
@@ -267,7 +265,7 @@ Whitespace: Ignore any leading whitespace (" ").
 Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present.
 Conversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0.
 Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.
-Return the integer as the final result.*/ 
+Return the integer as the final result.*/
 
 function myAtoi(s) {
   s = s.trim();
@@ -275,16 +273,16 @@ function myAtoi(s) {
 
   let sign = 1;
   let index = 0;
-  if (s[index] === '-') {
+  if (s[index] === "-") {
     sign = -1;
     index++;
-  } else if (s[index] === '+') {
+  } else if (s[index] === "+") {
     index++;
   }
 
   let result = 0;
-  while (index < s.length && s[index] >= '0' && s[index] <= '9') {
-    const digit = s[index] - '0';
+  while (index < s.length && s[index] >= "0" && s[index] <= "9") {
+    const digit = s[index] - "0";
     result = result * 10 + digit;
 
     // Check for overflow
@@ -302,3 +300,44 @@ console.log(`myAtoi:`, myAtoi("42")); // 42
 console.log(`myAtoi:`, myAtoi("   -42")); // -42
 console.log(`myAtoi:`, myAtoi("4193 with words")); // 4193
 console.log(`myAtoi:`, myAtoi("words and 987")); //0
+
+// TODO:Palindrome Number
+
+/**
+ * Given an integer x, return true if x is a palindrome, and false otherwise.
+
+ 
+
+Example 1:
+
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+Example 2:
+
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Example 3:
+
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+ * */
+
+function isPalindrome(x) {
+  if (x < 0) return false;
+  const str = x.toString();
+  let left = 0, right = str.length - 1;
+  while (left < right) {
+    if (str[left] !== str[right]) return false;
+    left++;
+    right--;
+  }
+  return true;
+}
+
+// Example usage:
+console.log(`isPalindrome:`, isPalindrome(121));    // true
+console.log(`isPalindrome:`, isPalindrome(-121));   // false
+console.log(`isPalindrome:`, isPalindrome(10));     // false
