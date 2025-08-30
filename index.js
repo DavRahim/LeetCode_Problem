@@ -199,9 +199,9 @@ function longestPalindrome(s) {
   return s.substring(start, end + 1);
 }
 // Example usage:
-console.log(`longestPalindrome:`, longestPalindrome("babad")); // "bab" or "aba"
-console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
-console.log(`longestPalindrome:`, longestPalindrome("abdur")); //   "aba" (or "bab", depending on the implementation)
+// console.log(`longestPalindrome:`, longestPalindrome("babad")); // "bab" or "aba"
+// console.log(`longestPalindrome:`, longestPalindrome("cbbd")); // "bb"
+// console.log(`longestPalindrome:`, longestPalindrome("abdur")); //   "aba" (or "bab", depending on the implementation)
 
 // TODO: Zigzag Conversion
 
@@ -223,9 +223,9 @@ function convert(s, numRows) {
   return rows.join("");
 }
 // Example usage:
-console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR"
-console.log(`convert:`, convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
-console.log(`convert:`, convert("A", 1)); // "A"
+// console.log(`convert:`, convert("PAYPALISHIRING", 3)); // "PAHNAPLSIIGYIR"
+// console.log(`convert:`, convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
+// console.log(`convert:`, convert("A", 1)); // "A"
 
 //Intuition
 // The zigzag conversion arranges characters in a zigzag pattern across multiple rows, then reads them row by row.
@@ -249,9 +249,9 @@ function reverse(x) {
   return reversed;
 }
 // Example usage:
-console.log(`reverse:`, reverse(123)); // 321
-console.log(`reverse:`, reverse(-123)); // -321
-console.log(`reverse:`, reverse(120)); // 21
+// console.log(`reverse:`, reverse(123)); // 321
+// console.log(`reverse:`, reverse(-123)); // -321
+// console.log(`reverse:`, reverse(120)); // 21
 
 // TODO: String to Integer (atoi)
 
@@ -296,10 +296,10 @@ function myAtoi(s) {
 }
 
 // Example usage:
-console.log(`myAtoi:`, myAtoi("42")); // 42
-console.log(`myAtoi:`, myAtoi("   -42")); // -42
-console.log(`myAtoi:`, myAtoi("4193 with words")); // 4193
-console.log(`myAtoi:`, myAtoi("words and 987")); //0
+// console.log(`myAtoi:`, myAtoi("42")); // 42
+// console.log(`myAtoi:`, myAtoi("   -42")); // -42
+// console.log(`myAtoi:`, myAtoi("4193 with words")); // 4193
+// console.log(`myAtoi:`, myAtoi("words and 987")); //0
 
 // TODO:Palindrome Number
 
@@ -328,7 +328,8 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 function isPalindrome(x) {
   if (x < 0) return false;
   const str = x.toString();
-  let left = 0, right = str.length - 1;
+  let left = 0,
+    right = str.length - 1;
   while (left < right) {
     if (str[left] !== str[right]) return false;
     left++;
@@ -338,6 +339,95 @@ function isPalindrome(x) {
 }
 
 // Example usage:
-console.log(`isPalindrome:`, isPalindrome(121));    // true
-console.log(`isPalindrome:`, isPalindrome(-121));   // false
-console.log(`isPalindrome:`, isPalindrome(10));     // false
+// console.log(`isPalindrome:`, isPalindrome(121)); // true
+// console.log(`isPalindrome:`, isPalindrome(-121)); // false
+// console.log(`isPalindrome:`, isPalindrome(10)); // false
+
+// Regular Expression Matching
+
+// Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+
+// '.' Matches any single character.​​​​
+// '*' Matches zero or more of the preceding element.
+// The matching should cover the entire input string (not partial).
+
+let isMatch = function (s, p) {
+  const m = s.length,
+    n = p.length;
+
+  // create DP table (m+1) X (n+1)
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(false));
+
+  // base case: Empty string & empty pattern
+  dp[0][0] = true;
+
+  // Handle patters like a*, a*b*, a*b*c*
+
+  for (let j = 2; j <= n; j++) {
+    if (p[j - 1] === "*") {
+      dp[0][j] = dp[0][j - 2];
+    }
+  }
+
+  // fill DP table;
+
+  for (let i = 1; (i) => m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (p[j - 1] === "." || p[j - 1] === s[i - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else if (p[j - 1] === "*") {
+        // Zero occurrence of previous char
+        dp[i][j] = dp[i][j - 2];
+
+        // One or more occurrence
+        if (p[j - 2] === "." || p[j - 2] === s[i - 1]) {
+          dp[i][j] = dp[i][j] || dp[i - 1][j];
+        }
+      }
+    }
+  }
+  return dp[m][n];
+};
+
+// console.log(isMatch("aa", "a")); // false
+// console.log(isMatch("aa", "a*")); // true
+// console.log(isMatch("ab", ".*")); // true
+// console.log(isMatch("aab", "c*a*b")); // true
+// console.log(isMatch("mississippi", "mis*is*p*.")); // false
+
+
+
+// Container With Most Water
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+// Return the maximum amount of water a container can store.
+
+// Notice that you may not slant the container.
+
+function maxArea(height) {
+  let left = 0,
+    right = height.length - 1;
+  let maxArea = 0;
+
+  while (left < right) {
+    const width = right - left;
+    const currentHeight = Math.min(height[left], height[right]);
+    const currentArea = width * currentHeight;
+    maxArea = Math.max(maxArea, currentArea);
+
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return maxArea;
+}
+// Example usage:
+console.log(`maxArea:`, maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // 49
+console.log(`maxArea:`, maxArea([1, 1])); // 1
+console.log(`maxArea:`, maxArea([4, 3, 2, 1, 4])); // 16
+console.log(`maxArea:`, maxArea([1, 2, 1])); // 2
