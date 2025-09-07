@@ -492,3 +492,30 @@ console.log(`intToRoman:`, intToRoman(3749)); // "IX"
 // C can be placed before D(500) and M(1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
+function romanToInt(s) {
+  const romanMap = new Map([
+    ["I", 1],
+    ["V", 5],
+    ["X", 10],
+    ["L", 50],
+    ["C", 100],
+    ["D", 500],
+    ["M", 1000],
+  ]);
+  let total = 0;
+  for (let i = 0; i < s.length; i++) {
+    const currentVal = romanMap.get(s[i]);
+    const nextVal = i + 1 < s.length ? romanMap.get(s[i + 1]) : 0;
+    if (currentVal < nextVal) {
+      total -= currentVal;
+    } else {
+      total += currentVal;
+    }
+  }
+  return total;
+}
+// Example usage:
+console.log(`romanToInt:`, romanToInt("III")); // 3
+console.log(`romanToInt:`, romanToInt("IV")); // 4
+console.log(`romanToInt:`, romanToInt("IX")); // 9
+console.log(`romanToInt:`, romanToInt("LVIII")); // 58
