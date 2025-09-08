@@ -19,9 +19,9 @@ function twoSum(nums, target) {
   return [];
 }
 // Example usage:
-console.log(`twoSum:`, twoSum([2, 7, 11, 15], 9)); // [0, 1]
-console.log(`twoSum:`, twoSum([3, 2, 4], 6)); // [1, 2]
-console.log(`twoSum:`, twoSum([3, 3], 6)); // [0, 1]
+// console.log(`twoSum:`, twoSum([2, 7, 11, 15], 9)); // [0, 1]
+// console.log(`twoSum:`, twoSum([3, 2, 4], 6)); // [1, 2]
+// console.log(`twoSum:`, twoSum([3, 3], 6)); // [0, 1]
 
 // LeetCode Problem: Add Two Numbers
 
@@ -103,7 +103,7 @@ function linkedListToArray(head) {
 const l1 = createLinkedList([2, 4, 3]);
 const l2 = createLinkedList([5, 6, 4]);
 const result = addTwoNumbers(l1, l2);
-console.log(`addTwoNumbers:`, linkedListToArray(result)); // [7, 0, 8] which represents the number 807
+// console.log(`addTwoNumbers:`, linkedListToArray(result)); // [7, 0, 8] which represents the number 807
 
 // LeetCode Problem: Longest Substring Without Repeating Characters
 // TODO:Longest Substring Without Repeating Characters
@@ -148,9 +148,9 @@ function lengthOfLongestSubstring(s) {
   return maxLength;
 }
 // Example usage:
-console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("abcabcbb")); // 3
-console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("bbbbb")); // 1
-console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("pwwkew")); // 3
+// console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("abcabcbb")); // 3
+// console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("bbbbb")); // 1
+// console.log(`lengthOfLongestSubstring:`, lengthOfLongestSubstring("pwwkew")); // 3
 
 // TODO: Median of Two Sorted Arrays
 // Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
@@ -168,8 +168,8 @@ function findMedianSortedArrays(nums1, nums2) {
   }
 }
 // Example usage:
-console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 3], [2])); // 2.0
-console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 2], [3, 4])); // 2.5
+// console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 3], [2])); // 2.0
+// console.log(`findMedianSortedArrays:`, findMedianSortedArrays([1, 2], [3, 4])); // 2.5
 
 // TODO: Longest Palindromic Substring
 
@@ -427,10 +427,10 @@ function maxArea(height) {
   return maxArea;
 }
 // Example usage:
-console.log(`maxArea:`, maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // 49
-console.log(`maxArea:`, maxArea([1, 1])); // 1
-console.log(`maxArea:`, maxArea([4, 3, 2, 1, 4])); // 16
-console.log(`maxArea:`, maxArea([1, 2, 1])); // 2
+// console.log(`maxArea:`, maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // 49
+// console.log(`maxArea:`, maxArea([1, 1])); // 1
+// console.log(`maxArea:`, maxArea([4, 3, 2, 1, 4])); // 16
+// console.log(`maxArea:`, maxArea([1, 2, 1])); // 2
 
 
 
@@ -475,9 +475,9 @@ function intToRoman(num) {
   return roman;
 }
 // Example usage:
-console.log(`intToRoman:`, intToRoman(1994)); // "III"
-console.log(`intToRoman:`, intToRoman(58)); // "IV"
-console.log(`intToRoman:`, intToRoman(3749)); // "IX"
+// console.log(`intToRoman:`, intToRoman(1994)); // "III"
+// console.log(`intToRoman:`, intToRoman(58)); // "IV"
+// console.log(`intToRoman:`, intToRoman(3749)); // "IX"
 
 
 
@@ -515,7 +515,52 @@ function romanToInt(s) {
   return total;
 }
 // Example usage:
-console.log(`romanToInt:`, romanToInt("III")); // 3
-console.log(`romanToInt:`, romanToInt("IV")); // 4
-console.log(`romanToInt:`, romanToInt("IX")); // 9
-console.log(`romanToInt:`, romanToInt("LVIII")); // 58
+// console.log(`romanToInt:`, romanToInt("III")); // 3
+// console.log(`romanToInt:`, romanToInt("IV")); // 4
+// console.log(`romanToInt:`, romanToInt("IX")); // 9
+// console.log(`romanToInt:`, romanToInt("LVIII")); // 58
+
+
+
+// Longest Common Prefix
+
+// Write a function to find the longest common prefix string amongst an array of strings.
+
+// If there is no common prefix, return an empty string "".
+
+
+
+//   Example 1:
+
+// Input: strs = ["flower", "flow", "flight"]
+// Output: "fl"
+// Example 2:
+
+// Input: strs = ["dog", "racecar", "car"]
+// Output: ""
+// Explanation: There is no common prefix among the input strings.
+
+
+//   Constraints:
+
+// 1 <= strs.length <= 200
+// 0 <= strs[i].length <= 200
+// strs[i] consists of only lowercase English letters if it is non - empty.
+
+
+
+function longestCommonPrefix(strs) {
+  if (strs.length === 0) return "";
+  let prefix = strs[0];
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix === "") return "";
+    }
+  }
+  return prefix;
+}
+// Example usage:
+console.log(`longestCommonPrefix:`, longestCommonPrefix(["flower", "flow", "flight"])); // "fl"
+console.log(`longestCommonPrefix:`, longestCommonPrefix(["dog", "racecar", "car"])); // ""
+console.log(`longestCommonPrefix:`, longestCommonPrefix(["interspecies", "interstellar", "interstate"])); // "inters"
