@@ -829,5 +829,90 @@ function fourSum(nums, target) {
 }
 
 // Example usage:
-console.log(`fourSum:`, fourSum([1, 0, -1, 0, -2, 2], 0)); // [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
-console.log(`fourSum:`, fourSum([2, 2, 2, 2, 2], 8)); // [[2, 2, 2, 2]]
+// console.log(`fourSum:`, fourSum([1, 0, -1, 0, -2, 2], 0)); // [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+// console.log(`fourSum:`, fourSum([2, 2, 2, 2, 2], 8)); // [[2, 2, 2, 2]]
+
+
+
+// TODO: Remove Nth Node From End of List
+
+// Given the head of a linked list, remove the nth node from the end of the list and return its head.Input: head = [1,2,3,4,5], n = 2
+// Output: [1, 2, 3, 5]
+// Example 2:
+
+// Input: head = [1], n = 1
+// Output: []
+// Example 3:
+
+// Input: head = [1, 2], n = 1
+// Output: [1]
+
+
+// Constraints:
+
+// The number of nodes in the list is sz.
+// 1 <= sz <= 30
+// 0 <= Node.val <= 100
+// 1 <= n <= sz
+
+
+function ListNode(val, next) {
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
+}
+function removeNthFromEnd(head, n) {
+  const dummy = new ListNode(0);
+  dummy.next = head;
+  let first = dummy;
+  let second = dummy; 
+  for (let i = 0; i <= n; i++) {
+    first = first.next;
+  }
+  while (first !== null) {
+    first = first.next;
+    second = second.next;
+  }
+  second.next = second.next.next;
+  return dummy.next;
+}
+// Example usage:
+// Helper function to create a linked list from an array
+function createLinkedList(arr) {
+  let dummyHead = new ListNode(0);
+  let current = dummyHead;    
+  for (let val of arr) {
+    current.next = new ListNode(val);
+    current = current.next;
+  }
+  return dummyHead.next;
+}
+// // Helper function to convert a linked list to an array
+function linkedListToArray(head) {
+  let arr = [];
+  while (head !== null) {
+    arr.push(head.val);
+    head = head.next;
+  }
+  return arr;
+}
+// Example usage:
+const head = createLinkedList([1, 2, 3, 4, 5]);
+const n = 2;
+const updatedHead = removeNthFromEnd(head, n);
+// console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead)); // [1, 2, 3, 5]
+// Example usage:
+const head1 = createLinkedList([1]);
+const n1 = 1;
+const updatedHead1 = removeNthFromEnd(head1, n1);
+// console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead1)); // []
+// Example usage:
+const head2 = createLinkedList([1, 2]);
+const n2 = 1;
+const updatedHead2 = removeNthFromEnd(head2, n2);
+// console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead2)); // [1]
+// Intuition
+// The function uses a two-pointer technique to efficiently remove the nth node from the end of a linked list.
+// A dummy node is introduced to handle edge cases, such as removing the head of the list.
+// The first pointer is advanced n+1 steps ahead, creating a gap of n nodes between the first and second pointers.
+
+
