@@ -864,7 +864,7 @@ function removeNthFromEnd(head, n) {
   const dummy = new ListNode(0);
   dummy.next = head;
   let first = dummy;
-  let second = dummy; 
+  let second = dummy;
   for (let i = 0; i <= n; i++) {
     first = first.next;
   }
@@ -879,7 +879,7 @@ function removeNthFromEnd(head, n) {
 // Helper function to create a linked list from an array
 function createLinkedList(arr) {
   let dummyHead = new ListNode(0);
-  let current = dummyHead;    
+  let current = dummyHead;
   for (let val of arr) {
     current.next = new ListNode(val);
     current = current.next;
@@ -965,4 +965,31 @@ const updatedHead2 = removeNthFromEnd(head2, n2);
 // s consists of parentheses only '()[]{}'.
 
 
+
+function isValid(s) {
+  const stack = [];
+  const bracketMap = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+  for (let char of s) {
+    if (bracketMap[char]) {
+      stack.push(char);
+    } else {
+      const last = stack.pop();
+      if (bracketMap[last] !== char) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+}
+
+// Example usage:
+console.log(`isValid:`, isValid("()")); // true
+console.log(`isValid:`, isValid("()[]{}")); // true
+console.log(`isValid:`, isValid("(]")); // false
+console.log(`isValid:`, isValid("([])")); // true
+console.log(`isValid:`, isValid("([)]")); // false
 
