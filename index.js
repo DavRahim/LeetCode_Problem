@@ -1140,4 +1140,6 @@ function generateParenthesis(n) {
 // lists[i] is sorted in ascending order.
 // The sum of lists[i].length will not exceed 104.
 
-function mergeKLists(lists) {}
+function mergeKLists(lists) {
+  if (lists.length === 0) return null;
+}
