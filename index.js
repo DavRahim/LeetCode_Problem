@@ -1044,14 +1044,17 @@ function mergeTwoLists(list1, list2) {
 const list1 = createLinkedList([1, 2, 4]);
 const list2 = createLinkedList([1, 3, 4]);
 const mergedList = mergeTwoLists(list1, list2);
-console.log(`mergeTwoLists:`, linkedListToArray(mergedList)); // [1, 1, 2, 3, 4, 4]
+// console.log(`mergeTwoLists:`, linkedListToArray(mergedList)); // [1, 1, 2, 3, 4, 4]
 // Example usage:
 const list3 = createLinkedList([]);
 const list4 = createLinkedList([]);
 const mergedList1 = mergeTwoLists(list3, list4);
-console.log(`mergeTwoLists:`, linkedListToArray(mergedList1)); // []
+// console.log(`mergeTwoLists:`, linkedListToArray(mergedList1)); // []
 // Example usage:
 const list5 = createLinkedList([]);
 const list6 = createLinkedList([0]);
 const mergedList2 = mergeTwoLists(list5, list6);
-console.log(`mergeTwoLists:`, linkedListToArray(mergedList2)); // [0]
+// console.log(`mergeTwoLists:`, linkedListToArray(mergedList2)); // [0]
+
+
+
