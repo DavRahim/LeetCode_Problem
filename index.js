@@ -1142,4 +1142,47 @@ function generateParenthesis(n) {
 
 function mergeKLists(lists) {
   if (lists.length === 0) return null;
+  const mergeTwoLists = (l1, l2) => {
+    const dummy = new ListNode(0);
+    let current = dummy;
+    while (l1 !== null && l2 !== null) {
+      if (l1.val < l2.val) {
+        current.next = l1;
+        l1 = l1.next;
+      } else {
+        current.next = l2;
+        l2 = l2.next;
+      }
+      current = current.next;
+    }
+    if (l1 !== null) {
+      current.next = l1;
+    }
+    if (l2 !== null) {
+      current.next = l2;
+    }
+    return dummy.next;
+  }
+  const merge = (lists, left, right) => {
+    if (left === right) return lists[left];
+    const mid = Math.floor((left + right) / 2);
+    const l1 = merge(lists, left, mid);
+    const l2 = merge(lists, mid + 1, right);
+    return mergeTwoLists(l1, l2);
+  }
+  return merge(lists, 0, lists.length - 1);
 }
+
+// Example usage:
+const list11 = createLinkedList([1, 4, 5]);
+const list22 = createLinkedList([1, 3, 4]);
+const list33 = createLinkedList([2, 6]);
+const mergedKList = mergeKLists([list11, list22, list33]);
+console.log(`mergeKLists:`, linkedListToArray(mergedKList)); // [1, 1, 2, 3, 4, 4, 5, 6]
+// Example usage:
+const mergedKList1 = mergeKLists([]);
+console.log(`mergeKLists:`, linkedListToArray(mergedKList1)); // []
+// Example usage:
+const list44 = createLinkedList([]);
+const mergedKList2 = mergeKLists([list44]);
+console.log(`mergeKLists:`, linkedListToArray(mergedKList2)); // []
