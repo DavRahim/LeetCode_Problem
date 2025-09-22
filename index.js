@@ -1097,5 +1097,5 @@ function generateParenthesis(n) {
   return result;
 }
 // Example usage:
-console.log(`generateParenthesis:`, generateParenthesis(3)); // ["((()))", "(()())", "(())()", "()(())", "()()()"]
+console.log(`generateParenthesis:`, generateParenthesis(5)); // ["((()))", "(()())", "(())()", "()(())", "()()()"]
 console.log(`generateParenthesis:`, generateParenthesis(1)); // ["()"]
