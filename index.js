@@ -1178,11 +1178,25 @@ const list11 = createLinkedList([1, 4, 5]);
 const list22 = createLinkedList([1, 3, 4]);
 const list33 = createLinkedList([2, 6]);
 const mergedKList = mergeKLists([list11, list22, list33]);
-console.log(`mergeKLists:`, linkedListToArray(mergedKList)); // [1, 1, 2, 3, 4, 4, 5, 6]
+// console.log(`mergeKLists:`, linkedListToArray(mergedKList)); // [1, 1, 2, 3, 4, 4, 5, 6]
 // Example usage:
 const mergedKList1 = mergeKLists([]);
-console.log(`mergeKLists:`, linkedListToArray(mergedKList1)); // []
+// console.log(`mergeKLists:`, linkedListToArray(mergedKList1)); // []
 // Example usage:
 const list44 = createLinkedList([]);
 const mergedKList2 = mergeKLists([list44]);
-console.log(`mergeKLists:`, linkedListToArray(mergedKList2)); // []
+// console.log(`mergeKLists:`, linkedListToArray(mergedKList2)); // []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
