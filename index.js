@@ -1190,13 +1190,58 @@ const mergedKList2 = mergeKLists([list44]);
 
 
 
+// TODO: Swap Nodes in Pairs
 
 
+// Given a linked list, swap every two adjacent nodes and return its head.You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
+// Example 1:
+// Input: head = [1, 2, 3, 4]
+// Output: [2, 1, 4, 3]
+// Explanation:
+// Example 2:
+// Input: head = []
+// Output: []
+// Example 3:
+// Input: head = [1]
+// Output: [1]
+// Example 4:
+// Input: head = [1, 2, 3]
+// Output: [2, 1, 3]
+// Constraints:
+
+// The number of nodes in the list is in the range[0, 100].
+// 0 <= Node.val <= 100
 
 
+const swapPairs = function (head) {
+  const dummy = new ListNode(0);
+  dummy.next = head;
+  let current = dummy;
+  while (current.next !== null && current.next.next !== null) {
+    const first = current.next;
+    const second = current.next.next;
+    first.next = second.next;
+    current.next = second;
+    current.next.next = first;
+    current = current.next.next;
+  }
+  return dummy.next;
+}
 
 
-
+// Example usage:
+const list111 = createLinkedList([1, 2, 3, 4]);
+const swappedList = swapPairs(list111);
+console.log(`swapPairs:`, linkedListToArray(swappedList)); // [2, 1, 4, 3]
+// Example usage:
+const list222 = createLinkedList([]);
+const swappedList1 = swapPairs(list222);
+console.log(`swapPairs:`, linkedListToArray(swappedList1)); // []
+// Example usage:
+const list333 = createLinkedList([1]);
+const swappedList2 = swapPairs(list333);
+console.log(`swapPairs:`, linkedListToArray(swappedList2)); // [1]
+// Example usage:
 
 
 
