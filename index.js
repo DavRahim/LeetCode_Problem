@@ -1280,7 +1280,22 @@ const reverseKGroup = function (head, k) {
     current = current.next;
   }
   current = dummy;
-  
+  while (count >= k) {
+    let prev = null;
+    let tail = current.next;
+    let temp = null;
+    for (let i = 0; i < k; i++) {
+      temp = current.next;
+      current.next = temp.next;
+      temp.next = prev;
+      prev = temp;
+    }
+    current.next = prev;
+    tail.next = temp;
+    current = tail;
+    count -= k;
+  }
+  return dummy.next;
 }
 
 // Example usage:
