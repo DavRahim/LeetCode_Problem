@@ -890,25 +890,25 @@ function createLinkedList(arr) {
 function linkedListToArray(head) {
   let arr = [];
   while (head !== null) {
-    arr.push(head.val);
+    // arr.push(head.val);
     head = head.next;
   }
   return arr;
 }
 // Example usage:
-const head = createLinkedList([1, 2, 3, 4, 5]);
-const n = 2;
-const updatedHead = removeNthFromEnd(head, n);
+// const head = createLinkedList([1, 2, 3, 4, 5]);
+// const n11 = 2;
+// const updatedHead = removeNthFromEnd(head, n11);
 // console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead)); // [1, 2, 3, 5]
 // Example usage:
-const head1 = createLinkedList([1]);
-const n1 = 1;
-const updatedHead1 = removeNthFromEnd(head1, n1);
+// const head1 = createLinkedList([1]);
+// const n1 = 1;
+// const updatedHead1 = removeNthFromEnd(head1, n1);
 // console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead1)); // []
 // Example usage:
-const head2 = createLinkedList([1, 2]);
-const n2 = 1;
-const updatedHead2 = removeNthFromEnd(head2, n2);
+// const head2 = createLinkedList([1, 2]);
+// const n2 = 1;
+// const updatedHead2 = removeNthFromEnd(head2, n2);
 // console.log(`removeNthFromEnd:`, linkedListToArray(updatedHead2)); // [1]
 // Intuition
 // The function uses a two-pointer technique to efficiently remove the nth node from the end of a linked list.
