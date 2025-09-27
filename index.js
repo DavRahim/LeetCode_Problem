@@ -1273,33 +1273,35 @@ const swappedList2 = swapPairs(list333);
 const reverseKGroup = function (head, k) {
   const dummy = new ListNode(0);
   dummy.next = head;
-  let current = dummy;
-  let count = 0;
-  while (current.next !== null) {
-    count++;
-    current = current.next;
-  }
-  current = dummy;
-  while (count >= k) {
-    let prev = null;
-    let tail = current.next;
-    let temp = null;
-    for (let i = 0; i < k; i++) {
-      temp = current.next;
-      current.next = temp.next;
-      temp.next = prev;
-      prev = temp;
+  let groupPrev = dummy;
+  while (true) {
+    let kth = groupPrev;
+    for (let i = 0; i < k && kth !== null; i++) {
+      kth = kth.next;
     }
-    current.next = prev;
-    tail.next = temp;
-    current = tail;
-    count -= k;
+    if (kth === null) break;
+    let groupNext = kth.next;
+    let prev = groupNext;
+    let current = groupPrev.next;
+    while (current !== groupNext) {
+      const temp = current.next;
+      current.next = prev;
+      prev = current;
+      current = temp;
+    }
+    const temp = groupPrev.next;
+    groupPrev.next = kth;
+    groupPrev = temp;
   }
   return dummy.next;
 }
-
 // Example usage:
-const list1111 = createLinkedList([1, 2, 3, 4, 5]);
+const list11112 = createLinkedList([1, 2, 3, 4, 5]);
 const k = 2;
-const reversedKList = reverseKGroup(list1111, k);
-console.log(`reverseKGroup:`, linkedListToArray(reversedKList));
+const reversedKList22 = reverseKGroup(list11112, k);
+console.log(`reverseKGroup:`, linkedListToArray(reversedKList22)); // [2, 1, 4, 3, 5]
+// Example usage:
+const list22221 = createLinkedList([1, 2, 3, 4, 5]);
+const k1 = 3;
+const reversedKList122 = reverseKGroup(list22221, k1);
+console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1, 4, 5]
