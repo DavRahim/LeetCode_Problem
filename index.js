@@ -1376,6 +1376,10 @@ const nums21 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 const k21 = removeDuplicates(nums21);
 console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
 
+// Intuition
+// The function uses a two-pointer technique to efficiently remove duplicates from a sorted array in place.
+// One pointer (uniqueIndex) tracks the position of the last unique element, while the other pointer (i) iterates through the array.
+// When a new unique element is found, it is moved to the position after the last unique element, effectively overwriting duplicates.
 
 
 
