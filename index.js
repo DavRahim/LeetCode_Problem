@@ -1440,4 +1440,12 @@ function removeDuplicates(nums) {
   }
   return uniqueIndex + 1;
 }
+
 // Example usage:
+const nums13 = [1, 1, 2];
+const k123 = removeDuplicates(nums13);
+console.log(`removeDuplicates:`, k123, nums13.slice(0, k123));
+// Example usage:
+const nums213 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+const k213 = removeDuplicates(nums213);
+console.log(`removeDuplicates:`, k213, nums213.slice(0, k213));
