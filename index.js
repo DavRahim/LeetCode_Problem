@@ -395,8 +395,6 @@ let isMatch = function (s, p) {
 // console.log(isMatch("aab", "c*a*b")); // true
 // console.log(isMatch("mississippi", "mis*is*p*.")); // false
 
-
-
 // Container With Most Water
 // You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 
@@ -432,10 +430,6 @@ function maxArea(height) {
 // console.log(`maxArea:`, maxArea([4, 3, 2, 1, 4])); // 16
 // console.log(`maxArea:`, maxArea([1, 2, 1])); // 2
 
-
-
-
-
 //  Integer to Roman
 
 // Roman numerals are formed by appending the conversions of decimal place values from highest to lowest.Converting a decimal place value into a Roman numeral has the following rules:
@@ -445,11 +439,8 @@ function maxArea(height) {
 // Only powers of 10(I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5(V), 50(L), or 500(D) multiple times.If you need to append a symbol 4 times use the subtractive form.
 // Given an integer, convert it to a Roman numeral.
 
-
 function intToRoman(num) {
-  const val = [
-    1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1,
-  ];
+  const val = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
   const syms = [
     "M",
     "CM",
@@ -479,16 +470,14 @@ function intToRoman(num) {
 // console.log(`intToRoman:`, intToRoman(58)); // "IV"
 // console.log(`intToRoman:`, intToRoman(3749)); // "IX"
 
-
-
 // Roman to Integer
 
 // For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II.The number 27 is written as XXVII, which is XX + V + II.
 
 // Roman numerals are usually written largest to smallest from left to right.However, the numeral for four is not IIII.Instead, the number four is written as IV.Because the one is before the five we subtract it making four.The same principle applies to the number nine, which is written as IX.There are six instances where subtraction is used:
 
-// I can be placed before V(5) and X(10) to make 4 and 9. 
-// X can be placed before L(50) and C(100) to make 40 and 90. 
+// I can be placed before V(5) and X(10) to make 4 and 9.
+// X can be placed before L(50) and C(100) to make 40 and 90.
 // C can be placed before D(500) and M(1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
@@ -520,15 +509,11 @@ function romanToInt(s) {
 // console.log(`romanToInt:`, romanToInt("IX")); // 9
 // console.log(`romanToInt:`, romanToInt("LVIII")); // 58
 
-
-
 // Longest Common Prefix
 
 // Write a function to find the longest common prefix string amongst an array of strings.
 
 // If there is no common prefix, return an empty string "".
-
-
 
 //   Example 1:
 
@@ -540,14 +525,11 @@ function romanToInt(s) {
 // Output: ""
 // Explanation: There is no common prefix among the input strings.
 
-
 //   Constraints:
 
 // 1 <= strs.length <= 200
 // 0 <= strs[i].length <= 200
 // strs[i] consists of only lowercase English letters if it is non - empty.
-
-
 
 function longestCommonPrefix(strs) {
   if (strs.length === 0) return "";
@@ -565,14 +547,11 @@ function longestCommonPrefix(strs) {
 // console.log(`longestCommonPrefix:`, longestCommonPrefix(["dog", "racecar", "car"])); // ""
 // console.log(`longestCommonPrefix:`, longestCommonPrefix(["interspecies", "interstellar", "interstate"])); // "inters"
 
-
 //  problem: 3Sum
 
 // // Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
 // Notice that the solution set must not contain duplicate triplets.
-
-
 
 //   Example 1:
 
@@ -594,7 +573,6 @@ function longestCommonPrefix(strs) {
 // Input: nums = [0, 0, 0]
 // Output: [[0, 0, 0]]
 // Explanation: The only possible triplet sums up to 0.
-
 
 function threeSum(nums) {
   nums.sort((a, b) => a - b);
@@ -626,18 +604,13 @@ function threeSum(nums) {
 // console.log(`threeSum:`, threeSum([0, 1, 1])); // []
 // console.log(`threeSum:`, threeSum([0, 0, 0])); // [[0, 0, 0]]
 
-
-
 // 3Sum Closest
-
 
 // Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
 
 // Return the sum of the three integers.
 
 // You may assume that each input would have exactly one solution.
-
-
 
 //   Example 1:
 
@@ -649,8 +622,6 @@ function threeSum(nums) {
 // Input: nums = [0, 0, 0], target = 1
 // Output: 0
 // Explanation: The sum that is closest to the target is 0.(0 + 0 + 0 = 0).
-
-
 
 function threeSumClosest(nums, target) {
   nums.sort((a, b) => a - b);
@@ -677,9 +648,7 @@ function threeSumClosest(nums, target) {
 // console.log(`threeSumClosest:`, threeSumClosest([-1, 2, 1, -4], 1)); // 2
 // console.log(`threeSumClosest:`, threeSumClosest([0, 0, 0], 1)); // 0
 
-
 // problem: Letter Combinations of a Phone Number
-
 
 // Given a string containing digits from 2 - 9 inclusive, return all possible letter combinations that the number could represent.Return the answer in any order.
 
@@ -697,7 +666,6 @@ function threeSumClosest(nums, target) {
 
 // Input: digits = "2"
 // Output: ["a", "b", "c"]
-
 
 function letterCombinations(digits) {
   if (digits.length === 0) return [];
@@ -731,9 +699,6 @@ function letterCombinations(digits) {
 // console.log(`letterCombinations:`, letterCombinations("")); // []
 // console.log(`letterCombinations:`, letterCombinations("2")); // ["a", "b", "c"]
 
-
-
-
 // Two Sum
 
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -741,8 +706,6 @@ function letterCombinations(digits) {
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 // You can return the answer in any order.
-
-
 
 //   Example 1:
 
@@ -774,8 +737,6 @@ function twoSum(nums, target) {
 // console.log(`twoSum:`, twoSum([3, 2, 4], 6)); // [1, 2]
 // console.log(`twoSum:`, twoSum([3, 3], 6)); // [0, 1]
 
-
-
 // Problem: 4Sum;
 
 // Given an array nums of n integers, return an array of all the unique quadruplets[nums[a], nums[b], nums[c], nums[d]] such that:
@@ -785,8 +746,6 @@ function twoSum(nums, target) {
 //   nums[a] + nums[b] + nums[c] + nums[d] == target
 // You may return the answer in any order.
 
-
-
 //   Example 1:
 
 // Input: nums = [1, 0, -1, 0, -2, 2], target = 0
@@ -795,7 +754,6 @@ function twoSum(nums, target) {
 
 // Input: nums = [2, 2, 2, 2, 2], target = 8
 // Output: [[2, 2, 2, 2]]
-
 
 function fourSum(nums, target) {
   nums.sort((a, b) => a - b);
@@ -815,11 +773,9 @@ function fourSum(nums, target) {
           while (left < right && nums[right] === nums[right - 1]) right--;
           left++;
           right--;
-        }
-        else if (sum < target) {
+        } else if (sum < target) {
           left++;
-        }
-        else {
+        } else {
           right--;
         }
       }
@@ -831,8 +787,6 @@ function fourSum(nums, target) {
 // Example usage:
 // console.log(`fourSum:`, fourSum([1, 0, -1, 0, -2, 2], 0)); // [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
 // console.log(`fourSum:`, fourSum([2, 2, 2, 2, 2], 8)); // [[2, 2, 2, 2]]
-
-
 
 // TODO: Remove Nth Node From End of List
 
@@ -847,14 +801,12 @@ function fourSum(nums, target) {
 // Input: head = [1, 2], n = 1
 // Output: [1]
 
-
 // Constraints:
 
 // The number of nodes in the list is sz.
 // 1 <= sz <= 30
 // 0 <= Node.val <= 100
 // 1 <= n <= sz
-
 
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
@@ -915,8 +867,6 @@ function linkedListToArray(head) {
 // A dummy node is introduced to handle edge cases, such as removing the head of the list.
 // The first pointer is advanced n+1 steps ahead, creating a gap of n nodes between the first and second pointers.
 
-
-
 // TODO:Valid Parentheses
 
 // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -957,14 +907,10 @@ function linkedListToArray(head) {
 
 // Output: false
 
-
-
 // Constraints:
 
 // 1 <= s.length <= 104
 // s consists of parentheses only '()[]{}'.
-
-
 
 function isValid(s) {
   const stack = [];
@@ -993,17 +939,13 @@ function isValid(s) {
 // console.log(`isValid:`, isValid("([])")); // true
 // console.log(`isValid:`, isValid("([)]")); // false
 
-
-
 // TODO: Merge Two Sorted Lists.
-
 
 // You are given the heads of two sorted linked lists list1 and list2.
 
 // Merge the two lists into one sorted list.The list should be made by splicing together the nodes of the first two lists.
 
 // Return the head of the merged linked list
-
 
 // Example 1:
 
@@ -1056,13 +998,9 @@ const list6 = createLinkedList([0]);
 const mergedList2 = mergeTwoLists(list5, list6);
 // console.log(`mergeTwoLists:`, linkedListToArray(mergedList2)); // [0]
 
-
-
 // TODO: Generate Parentheses
 
 // Given n pairs of parentheses, write a function to generate all combinations of well - formed parentheses.
-
-
 
 //   Example 1:
 
@@ -1073,11 +1011,9 @@ const mergedList2 = mergeTwoLists(list5, list6);
 // Input: n = 1
 // Output: ["()"]
 
-
 // Constraints:
 
 // 1 <= n <= 8
-
 
 function generateParenthesis(n) {
   const result = [];
@@ -1100,14 +1036,11 @@ function generateParenthesis(n) {
 // console.log(`generateParenthesis:`, generateParenthesis(5)); // ["((()))", "(()())", "(())()", "()(())", "()()()"]
 // console.log(`generateParenthesis:`, generateParenthesis(1)); // ["()"]
 
-
 // TODO: Merge k Sorted Lists
 
 // You are given an array of k linked - lists lists, each linked - list is sorted in ascending order.
 
 // Merge all the linked - lists into one sorted linked - list and return it.
-
-
 
 //   Example 1:
 
@@ -1129,7 +1062,6 @@ function generateParenthesis(n) {
 
 // Input: lists = [[]]
 // Output: []
-
 
 // Constraints:
 
@@ -1162,14 +1094,14 @@ function mergeKLists(lists) {
       current.next = l2;
     }
     return dummy.next;
-  }
+  };
   const merge = (lists, left, right) => {
     if (left === right) return lists[left];
     const mid = Math.floor((left + right) / 2);
     const l1 = merge(lists, left, mid);
     const l2 = merge(lists, mid + 1, right);
     return mergeTwoLists(l1, l2);
-  }
+  };
   return merge(lists, 0, lists.length - 1);
 }
 
@@ -1187,11 +1119,7 @@ const list44 = createLinkedList([]);
 const mergedKList2 = mergeKLists([list44]);
 // console.log(`mergeKLists:`, linkedListToArray(mergedKList2)); // []
 
-
-
-
 // TODO: Swap Nodes in Pairs
-
 
 // Given a linked list, swap every two adjacent nodes and return its head.You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 // Example 1:
@@ -1212,7 +1140,6 @@ const mergedKList2 = mergeKLists([list44]);
 // The number of nodes in the list is in the range[0, 100].
 // 0 <= Node.val <= 100
 
-
 const swapPairs = function (head) {
   const dummy = new ListNode(0);
   dummy.next = head;
@@ -1226,8 +1153,7 @@ const swapPairs = function (head) {
     current = current.next.next;
   }
   return dummy.next;
-}
-
+};
 
 // Example usage:
 const list111 = createLinkedList([1, 2, 3, 4]);
@@ -1242,9 +1168,6 @@ const list333 = createLinkedList([1]);
 const swappedList2 = swapPairs(list333);
 // console.log(`swapPairs:`, linkedListToArray(swappedList2)); // [1]
 // Example usage:
-
-
-
 
 // TODO:Reverse Nodes in k-Group
 
@@ -1267,8 +1190,6 @@ const swappedList2 = swapPairs(list333);
 // The number of nodes in the list is n.
 // 1 <= k <= n <= 5000
 // 0 <= Node.val <= 1000
-
-
 
 const reverseKGroup = function (head, k) {
   const dummy = new ListNode(0);
@@ -1294,7 +1215,7 @@ const reverseKGroup = function (head, k) {
     groupPrev = temp;
   }
   return dummy.next;
-}
+};
 // Example usage:
 const list11112 = createLinkedList([1, 2, 3, 4, 5]);
 const k = 2;
@@ -1305,10 +1226,6 @@ const list22221 = createLinkedList([1, 2, 3, 4, 5]);
 const k1 = 3;
 const reversedKList122 = reverseKGroup(list22221, k1);
 console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1, 4, 5]
-
-
-
-
 
 // TODO:Remove Duplicates from Sorted Array
 
@@ -1333,8 +1250,6 @@ console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1,
 // }
 // If all assertions pass, then your solution will be accepted.
 
-
-
 //   Example 1:
 
 // Input: nums = [1, 1, 2]
@@ -1348,17 +1263,15 @@ console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1,
 // Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 // It does not matter what you leave beyond the returned k(hence they are underscores).
 
-
 //   Constraints:
 
 // 1 <= nums.length <= 3 * 104
 //   - 100 <= nums[i] <= 100
 // nums is sorted in non - decreasing order.
 
-
 function removeDuplicates(nums) {
   if (nums.length === 0) return 0;
-  let uniqueIndex = 0;  
+  let uniqueIndex = 0;
   for (let i = 1; i < nums.length; i++) {
     if (nums[i] !== nums[uniqueIndex]) {
       uniqueIndex++;
@@ -1380,8 +1293,6 @@ console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
 // The function uses a two-pointer technique to efficiently remove duplicates from a sorted array in place.
 // One pointer (uniqueIndex) tracks the position of the last unique element, while the other pointer (i) iterates through the array.
 // When a new unique element is found, it is moved to the position after the last unique element, effectively overwriting duplicates.
-
-
 
 // TODO: Remove Duplicates from Sorted Array
 
@@ -1406,8 +1317,6 @@ console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
 // }
 // If all assertions pass, then your solution will be accepted.
 
-
-
 //   Example 1:
 
 // Input: nums = [1, 1, 2]
@@ -1421,17 +1330,15 @@ console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
 // Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 // It does not matter what you leave beyond the returned k(hence they are underscores).
 
-
 //   Constraints:
 
 // 1 <= nums.length <= 3 * 104
 //   - 100 <= nums[i] <= 100
 // nums is sorted in non - decreasing order.
 
-
 function removeDuplicates(nums) {
   if (nums.length === 0) return 0;
-  let uniqueIndex = 0;  
+  let uniqueIndex = 0;
   for (let i = 1; i < nums.length; i++) {
     if (nums[i] !== nums[uniqueIndex]) {
       uniqueIndex++;
