@@ -1220,12 +1220,12 @@ const reverseKGroup = function (head, k) {
 const list11112 = createLinkedList([1, 2, 3, 4, 5]);
 const k = 2;
 const reversedKList22 = reverseKGroup(list11112, k);
-console.log(`reverseKGroup:`, linkedListToArray(reversedKList22)); // [2, 1, 4, 3, 5]
+// console.log(`reverseKGroup:`, linkedListToArray(reversedKList22)); // [2, 1, 4, 3, 5]
 // Example usage:
 const list22221 = createLinkedList([1, 2, 3, 4, 5]);
 const k1 = 3;
 const reversedKList122 = reverseKGroup(list22221, k1);
-console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1, 4, 5]
+// console.log(`reverseKGroup:`, linkedListToArray(reversedKList122)); // [3, 2, 1, 4, 5]
 
 // TODO:Remove Duplicates from Sorted Array
 
@@ -1283,11 +1283,11 @@ function removeDuplicates(nums) {
 // Example usage:
 const nums1 = [1, 1, 2];
 const k12 = removeDuplicates(nums1);
-console.log(`removeDuplicates:`, k12, nums1.slice(0, k1));
+// console.log(`removeDuplicates:`, k12, nums1.slice(0, k1));
 // Example usage:
 const nums21 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 const k21 = removeDuplicates(nums21);
-console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
+// console.log(`removeDuplicates:`, k21, nums21.slice(0, k21));
 
 // Intuition
 // The function uses a two-pointer technique to efficiently remove duplicates from a sorted array in place.
@@ -1351,11 +1351,11 @@ function removeDuplicates(nums) {
 // Example usage:
 const nums13 = [1, 1, 2];
 const k123 = removeDuplicates(nums13);
-console.log(`removeDuplicates:`, k123, nums13.slice(0, k123));
+// console.log(`removeDuplicates:`, k123, nums13.slice(0, k123));
 // Example usage:
 const nums213 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 const k213 = removeDuplicates(nums213);
-console.log(`removeDuplicates:`, k213, nums213.slice(0, k213));
+// console.log(`removeDuplicates:`, k213, nums213.slice(0, k213));
 
 // TODO: Remove Element
 
@@ -1411,8 +1411,8 @@ function removeElement(nums, val) {
 // Example usage:
 const nums1231 = [3, 2, 2, 3];
 const val12 = 3;
-const k1231 = removeElement(nums1231, val12);
-console.log(`removeElement:`, k123, nums1231.slice(0, k1231));
+// const k1231 = removeElement(nums1231, val12);
+// console.log(`removeElement:`, k123, nums1231.slice(0, k1231));
 
 // TODO: Find the Index of the First Occurrence in a String
 
@@ -1439,3 +1439,7 @@ function strStr(haystack, needle) {
   if (needle === "") return 0;
   return haystack.indexOf(needle);
 }
+
+// Example usage:
+console.log(`strStr:`, strStr("sadbutsad", "sad")); // 0
+console.log(`strStr:`, strStr("leetcode", "leeto")); // -1
