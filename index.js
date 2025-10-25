@@ -1537,3 +1537,5 @@ function divide(dividend, divisor) {
 // The substring starting at 6 is "foobarthe". It is the concatenation of ["foo","bar","the"].
 // The substring starting at 9 is "barthefoo". It is the concatenation of ["bar","the","foo"].
 // The substring starting at 12 is "thefoobar". It is the concatenation of ["the","foo","bar"].
+
+function findSubstring(s, words) {}
