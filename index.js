@@ -1538,4 +1538,72 @@ function divide(dividend, divisor) {
 // The substring starting at 9 is "barthefoo". It is the concatenation of ["bar","the","foo"].
 // The substring starting at 12 is "thefoobar". It is the concatenation of ["the","foo","bar"].
 
-function findSubstring(s, words) {}
+function findSubstring(s, words) {
+  if (words.length === 0 || s.length === 0) return [];
+  const wordLength = words[0].length;
+  const wordCount = words.length;
+  const substringLength = wordLength * wordCount;
+  const wordMap = new Map();
+  for (let word of words) {
+    wordMap.set(word, (wordMap.get(word) || 0) + 1);
+  }
+  const result = [];
+  for (let i = 0; i <= s.length - substringLength; i++) {
+    const seen = new Map();
+    let j = 0;
+    while (j < wordCount) {
+      const wordIndex = i + j * wordLength;
+      const word = s.substring(wordIndex, wordIndex + wordLength);
+      if (!wordMap.has(word)) break;
+      seen.set(word, (seen.get(word) || 0) + 1);
+      if (seen.get(word) > wordMap.get(word)) break;
+      j++;
+    }
+    if (j === wordCount) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+
+// function findSubstring(s, words) {
+//   if (words.length === 0 || s.length === 0) return [];
+//   const wordLength = words[0].length;
+//   const wordCount = words.length;
+//   const substringLength = wordLength * wordCount;
+//   const wordMap = new Map();
+//   for (let word of words) {
+//     wordMap.set(word, (wordMap.get(word) || 0) + 1);
+//   }
+//   const result = [];
+//   for (let i = 0; i <= s.length - substringLength; i++) {
+//     const seen = new Map();
+//     let j = 0;
+//     while (j < wordCount) {
+//       const wordIndex = i + j * wordLength;
+//       const word = s.substring(wordIndex, wordIndex + wordLength);
+//       if (!wordMap.has(word)) break;
+//       seen.set(word, (seen.get(word) || 0) + 1);
+//       if (seen.get(word) > wordMap.get(word)) break;
+//       j++;
+//     }
+//     if (j === wordCount) {
+//       result.push(i);
+//     }
+//   }
+//   return result;
+// }
+
+// Example usage:
+console.log(
+  `findSubstring:`,
+  findSubstring("barfoothefoobarman", ["foo", " bar"])
+); // [0, 9]
+console.log(
+  `findSubstring:`,
+  findSubstring("wordgoodgoodgoodbestword", ["word", " good", " best", " word"])
+); // []
+console.log(
+  `findSubstring:`,
+  findSubstring("barfoofoobarthefoobarman", ["bar", " foo", " the"])
+); // [6, 9, 12]
