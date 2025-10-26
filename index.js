@@ -1595,15 +1595,15 @@ function findSubstring(s, words) {
 // }
 
 // Example usage:
-console.log(
-  `findSubstring:`,
-  findSubstring("barfoothefoobarman", ["foo", " bar"])
-); // [0, 9]
-console.log(
-  `findSubstring:`,
-  findSubstring("wordgoodgoodgoodbestword", ["word", " good", " best", " word"])
-); // []
-console.log(
-  `findSubstring:`,
-  findSubstring("barfoofoobarthefoobarman", ["bar", " foo", " the"])
-); // [6, 9, 12]
+// console.log(
+//   `findSubstring:`,
+//   findSubstring("barfoothefoobarman", ["foo", " bar"])
+// ); // [0, 9]
+// console.log(
+//   `findSubstring:`,
+//   findSubstring("wordgoodgoodgoodbestword", ["word", " good", " best", " word"])
+// ); // []
+// console.log(
+//   `findSubstring:`,
+//   findSubstring("barfoofoobarthefoobarman", ["bar", " foo", " the"])
+// ); // [6, 9, 12]
