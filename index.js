@@ -1634,3 +1634,36 @@ function findSubstring(s, words) {
 
 // Input: nums = [1,1,5]
 // Output: [1,5,1]
+
+function nextPermutation(nums) {
+  let i = nums.length - 2;
+  while (i >= 0 && nums[i] >= nums[i + 1]) {
+    i--;
+  }
+  if (i >= 0) {
+    let j = nums.length - 1;
+    while (nums[j] <= nums[i]) {
+      j--;
+    }
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+  reverse(nums, i + 1);
+  return nums;
+}
+
+function reverse(nums, start) {
+  let left = start;
+  let right = nums.length - 1;
+  while (left < right) {
+    [nums[left], nums[right]] = [nums[right], nums[left]];
+    left++;
+    right--;
+  }
+
+  return nums;
+}
+
+// Example usage:
+console.log(`nextPermutation:`, nextPermutation([1, 2, 3])); // [1, 3, 2]
+console.log(`nextPermutation:`, nextPermutation([3, 2, 1])); // [1, 2, 3]
+console.log(`nextPermutation:`, nextPermutation([1, 1, 5])); // [1, 5, 1]
