@@ -1664,6 +1664,6 @@ function reverse(nums, start) {
 }
 
 // Example usage:
-console.log(`nextPermutation:`, nextPermutation([1, 2, 3])); // [1, 3, 2]
-console.log(`nextPermutation:`, nextPermutation([3, 2, 1])); // [1, 2, 3]
-console.log(`nextPermutation:`, nextPermutation([1, 1, 5])); // [1, 5, 1]
+// console.log(`nextPermutation:`, nextPermutation([1, 2, 3])); // [1, 3, 2]
+// console.log(`nextPermutation:`, nextPermutation([3, 2, 1])); // [1, 2, 3]
+// console.log(`nextPermutation:`, nextPermutation([1, 1, 5])); // [1, 5, 1]
